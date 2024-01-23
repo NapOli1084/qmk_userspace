@@ -59,7 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     OSL_F12, WN_LSFT, LSFT_A , KC_S   ,TD_H_ESC, LTWIN_T, KC_G   , KC_NO  ,    KC_NO  , KC_Y   , LTF1_N , KC_E   , KC_O   , RSFT_I , WN_RSFT, OSL_WIN, \
     NC_RSET, WN_LCTL, LCTL_Z , KC_X   , KC_M   , KC_C   , KC_V   , TTGAME ,    KC_NO  , KC_K   , KC_L   , UN_COMM, UN_DOT , UN_SLSH, WN_RCTL, _______, \
     KC_NO  , KC_NO  , KC_NO  , KC_LGUI, KC_LALT, KC_NO  , KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO  , KC_APP , KC_LGUI, KC_NO  , KC_NO  , KC_NO  , \
-    KC_NO  , OSL_NAV,KC_SPACE, OSL_F12, TTGAME , KC_WH_D, KC_WH_U, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, TTMOUSE, OSL_WIN,KC_ENTER, OSL_FRS, KC_NO \
+    KC_NO  , OSL_NAV,KC_SPACE, OSL_F12, TTGAME , KC_WH_D, KC_WH_U, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, TTGAME , OSL_WIN,KC_ENTER, OSL_FRS, KC_NO \
 )
 
   //lPinky3, lPinky2, lPinky1, lRing  , lMiddle, lIndex1, lIndex2, lIndex3,    rIndex3, rIndex2, rIndex1, rMiddle, rRing  , rPinky1, rPinky2, rPinky3,
