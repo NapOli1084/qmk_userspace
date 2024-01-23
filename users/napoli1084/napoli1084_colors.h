@@ -30,7 +30,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #endif
 
 #define NAPOLI1084_HSV_LYR_GAME HSV_RED
+
+#ifndef NAPOLI1084_HSV_LYR_NAVNUM
 #define NAPOLI1084_HSV_LYR_NAVNUM HSV_CYAN
+#endif
+
 #define NAPOLI1084_HSV_LYR_FRSYMBOL HSV_YELLOW
 #define NAPOLI1084_HSV_LYR_FRCAPS NAPOLI1084_HSV_ORANGE
 #define NAPOLI1084_HSV_LYR_FN HSV_PURPLE

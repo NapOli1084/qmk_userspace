@@ -17,6 +17,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include QMK_KEYBOARD_H
 
+
+#ifndef RGBLIGHT_ENABLE
+#error RGBLIGHT_ENABLE not defined
+#endif
+
+#ifndef RGBLIGHT_LAYERS
+#error RGBLIGHT_LAYERS not defined
+#endif
+
 /*
  *                                                    PED: foot pedal switch
  * ,-------------------------------------------.      ,------.  ,------.      ,-------------------------------------------.

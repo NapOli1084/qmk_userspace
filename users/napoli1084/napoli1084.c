@@ -20,6 +20,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "napoli1084_symbolkeys.h"
 #include "napoli1084_utils.h"
 
+#include "quantum/logging/debug.h" // for debug_config
+
 #ifdef CONSOLE_ENABLE
     #ifdef NO_PRINT
         #error NO_PRINT defined with CONSOLE_ENABLE, nothing will be written to console
@@ -43,6 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 _Static_assert(LYR_COUNT <= MAX_LAYER, "Number of layers exceeds max");
 
 void keyboard_post_init_user(void) {
+    debug_config.enable = true;
+    dprintf("keyboard_post_init_user\n");
+
     #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_enable_noeeprom();
     #endif
@@ -66,6 +71,7 @@ layer_state_t napoli1084_ergodox_layer_state_set(layer_state_t state);
 
 // Called when changing layer
 layer_state_t layer_state_set_user(layer_state_t state) {
+    dprintf("layer_state_set_user: %u\n", state);
     #ifdef NAPOLI1084_ERGODOX
     state = napoli1084_ergodox_layer_state_set(state);
     #endif
@@ -116,8 +122,8 @@ extern bool napoli1084_game_w_process(uint16_t keycode, keyrecord_t *record);
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    nap_dprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %b, time: %u, "
-            "interrupt: %b, count: %u\n",
+    nap_dprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %u, time: %u, "
+            "interrupt: %u, count: %u\n",
             keycode, record->event.key.col, record->event.key.row,
             record->event.pressed, record->event.time,
             record->tap.interrupted, record->tap.count);
