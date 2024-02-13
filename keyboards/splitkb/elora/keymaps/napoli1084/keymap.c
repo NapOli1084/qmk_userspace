@@ -64,8 +64,34 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                             leftRingRow5,   leftMiddleRow5,    leftThumb1,    leftThumb2,   leftThumb3,                rightThumb3,   rightThumb2,    rightThumb1,    rightMiddleRow5,    rightRingRow5, \
       leftPinky1Row0, leftRingRow0, leftMiddleRow0, leftIndex1Row0,    KC_MUTE,                                                    rightIndex1Row0, rightMiddleRow0, rightRingRow0, rightPinky1Row0,    KC_MUTE \
     )
+// See ../qmk_firmware/.build/obj_splitkb_elora_rev1_napoli1084/src/default_keyboard.h
+// for #define LAYOUT_myr
 
 #include "napoli1084_keymap.h"
+
+#ifdef SWAP_HANDS_ENABLE
+//12 rows, 8 columns
+const keypos_t PROGMEM hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
+    // Left
+    {{7, 6}, {6, 6}, {5, 6}, {4, 6}, {3, 6}, {2, 6}, {1, 6}, {0, 6}},
+    {{7, 7}, {6, 7}, {5, 7}, {4, 7}, {3, 7}, {2, 7}, {1, 7}, {0, 7}},
+    {{7, 8}, {6, 8}, {5, 8}, {4, 8}, {3, 8}, {2, 8}, {1, 8}, {0, 8}},
+    {{7, 9}, {6, 9}, {5, 9}, {4, 9}, {3, 9}, {2, 9}, {1, 9}, {0, 9}},
+    {{7, 10}, {6, 10}, {5, 10}, {4, 10}, {3, 10}, {2, 10}, {1, 10}, {0, 10}},
+    {{7, 11}, {6, 11}, {5, 11}, {4, 11}, {3, 11}, {2, 11}, {1, 11}, {0, 11}},
+    // Right
+    {{7, 0}, {6, 0}, {5, 0}, {4, 0}, {3, 0}, {2, 0}, {1, 0}, {0, 0}},
+    {{7, 1}, {6, 1}, {5, 1}, {4, 1}, {3, 1}, {2, 1}, {1, 1}, {0, 1}},
+    {{7, 2}, {6, 2}, {5, 2}, {4, 2}, {3, 2}, {2, 2}, {1, 2}, {0, 2}},
+    {{7, 3}, {6, 3}, {5, 3}, {4, 3}, {3, 3}, {2, 3}, {1, 3}, {0, 3}},
+    {{7, 4}, {6, 4}, {5, 4}, {4, 4}, {3, 4}, {2, 4}, {1, 4}, {0, 4}},
+    {{7, 5}, {6, 5}, {5, 5}, {4, 5}, {3, 5}, {2, 5}, {1, 5}, {0, 5}}
+};
+
+#if defined(ENCODER_MAP_ENABLE)
+const uint8_t PROGMEM encoder_hand_swap_config[NUM_ENCODERS] = { 4, 5, 6, 7, 0, 1, 2, 3 };
+#endif
+#endif
 
 #if defined(ENCODER_MAP_ENABLE)
 bool encoder_update_user(uint8_t index, bool clockwise) {
