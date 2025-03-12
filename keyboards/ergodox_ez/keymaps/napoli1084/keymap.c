@@ -22,7 +22,7 @@
                                                                                    leftThumb2, leftThumb3, leftThumb5,   rightThumb5, rightThumb3, rightThumb2 \
     )
 
-#include "napoli1084_keymap.h"
+#include "napoli1084_keymap.c"
 
 // Runs whenever there is a layer state change.
 layer_state_t napoli1084_ergodox_layer_state_set(layer_state_t state) {

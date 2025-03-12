@@ -55,5 +55,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         leftPinky3Row5, leftPinky2Row5, leftPinky1Row5, leftRingRow5, leftMiddleRow5, leftThumb1    , leftThumb2    ,     rightThumb2    , rightThumb1    , rightMiddleRow5, rightRingRow5, rightPinky1Row5, rightPinky2Row5, rightPinky3Row5 \
     )
 
-#include "napoli1084_keymap.h"
+#include "napoli1084_keymap.c"
 

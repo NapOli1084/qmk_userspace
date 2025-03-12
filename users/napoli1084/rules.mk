@@ -10,7 +10,7 @@ AVR_USE_MINIMAL_PRINTF = yes
 
 SRC += napoli1084.c
 SRC += napoli1084_symbolkeys.c
-SRC += napoli1084_tapdance.c
+#SRC += napoli1084_tapdance.c
 SRC += napoli1084_utils.c
 
 ifeq ($(strip $(RGBLIGHT_ENABLE)), yes)

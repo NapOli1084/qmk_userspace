@@ -41,7 +41,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                                                                                 leftThumb5,   rightThumb5 \
     )
 
-#include "napoli1084_keymap.h"
+#include "napoli1084_keymap.c"
 
 #ifdef SWAP_HANDS_ENABLE
 //12 rows, 6 columns

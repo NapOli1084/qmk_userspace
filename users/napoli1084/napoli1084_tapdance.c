@@ -368,7 +368,7 @@ void napoli1084_h_esc_key_reset(tap_dance_state_t *state, void *user_data) {
 
 // Tap Dance definitions
 // Limited to 256, see #define TD(n) (QK_TAP_DANCE | ((n)&0xFF))
-_Static_assert(tap_dance_count <= 0x00FF+1, "Number of tap dances cannot exceed 256, see TD()");
+_Static_assert(tap_dance_id_count <= 0x00FF+1, "Number of tap dances cannot exceed 256, see TD()");
 tap_dance_action_t tap_dance_actions[] = {
     [tap_dance_reset] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, napoli1084_reset_key_finished, napoli1084_reset_key_reset),
     [tap_dance_h_esc] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, napoli1084_h_esc_key_finished, napoli1084_h_esc_key_reset),

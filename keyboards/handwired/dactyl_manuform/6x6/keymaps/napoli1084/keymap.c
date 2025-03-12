@@ -38,7 +38,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                                                                     leftThumb3, leftThumb5,    rightThumb5, rightThumb3 \
     )
 
-#include "napoli1084_keymap.h"
+#include "napoli1084_keymap.c"
 
 #ifdef NAPOLI1084_MOUSE_LAYER_ENABLE
     [LYR_MOUSE] = LAYOUT_6x6(

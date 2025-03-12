@@ -67,7 +67,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // See ../qmk_firmware/.build/obj_splitkb_elora_rev1_napoli1084/src/default_keyboard.h
 // for #define LAYOUT_myr
 
-#include "napoli1084_keymap.h"
+#include "napoli1084_keymap.c"
 
 #ifdef SWAP_HANDS_ENABLE
 //12 rows, 8 columns

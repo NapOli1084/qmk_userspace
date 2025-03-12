@@ -170,3 +170,5 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #endif
 };
 #endif
+
+#include "napoli1084_tapdance.c"
