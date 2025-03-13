@@ -16,6 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "napoli1084_keycodeenums.h"
+#include "napoli1084_colors.h"
 #include "napoli1084_rgbmatrix_layers.h" // under keyboards/**/keymaps/napoli1084
 #include "napoli1084_rgbmatrix.h"
 #include "napoli1084_rgbmode.h"

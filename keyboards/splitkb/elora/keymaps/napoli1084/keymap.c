@@ -19,12 +19,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #ifndef RGBLIGHT_ENABLE
-#error RGBLIGHT_ENABLE not defined
+#ifndef RGB_MATRIX_ENABLE
+#error RGBLIGHT_ENABLE and RGB_MATRIX_ENABLE not defined
 #endif
-
+#else
 #ifndef RGBLIGHT_LAYERS
 #error RGBLIGHT_LAYERS not defined
 #endif
+#endif
+
 
 /*
  *                                                    PED: foot pedal switch
