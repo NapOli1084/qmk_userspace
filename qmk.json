@@ -1,9 +1,10 @@
 {
-    "userspace_version": "1.0",
+    "userspace_version": "1.1",
     "build_targets": [
         ["handwired/dactyl_manuform/6x6/promicro", "napoli1084"],
         ["handwired/dactyl_promicro", "napoli1084"],
         ["ergodox_ez/glow", "napoli1084"],
-        ["keebio/viterbi/rev2", "napoli1084"]
+        ["keebio/viterbi/rev2", "napoli1084"],
+        ["splitkb/elora/rev1", "napoli1084"]
     ]
 }
