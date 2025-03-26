@@ -65,11 +65,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ///////////////////////////////////////////////////////////////////////////
 // RGB Matrix
 ///////////////////////////////////////////////////////////////////////////
-#undef RGB_DISABLE_WHEN_USB_SUSPENDED
-#define RGB_DISABLE_WHEN_USB_SUSPENDED
+#undef RGB_MATRIX_SLEEP
+#define RGB_MATRIX_SLEEP
 
 #undef RGB_MATRIX_TIMEOUT
-// Turn off after 10 minutes
+// Turn off after 10 minutes (10*60sec*1000ms)
 #define RGB_MATRIX_TIMEOUT 600000
 
 // Startup animation speed
