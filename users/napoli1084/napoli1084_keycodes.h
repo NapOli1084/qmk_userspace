@@ -55,11 +55,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Layer-tap (layer when held, key code when tapped)
 #ifdef NAPOLI1084_LYR_WINDOWS_ENABLE
     #define LTWIN_T LT(LYR_WINDOWS,KC_T)
-    #define LTF1_N LT(LYR_F1F12,KC_N)
 #else
-    #define LTWIN_T KC_T
-    #define LTF1_N KC_N
+    //#define LTWIN_T KC_T
+    #define LTWIN_T LT(LYR_F1F12,KC_T)
 #endif
+#define LTF1_N LT(LYR_F1F12,KC_N)
 
 // Placeholder for key being held to toggle current layer.
 #define HOLDLYR KC_TRANSPARENT

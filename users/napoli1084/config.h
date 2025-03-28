@@ -135,8 +135,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
 ///////////////////////////////////////////////////////////////////////////
-// Tapping
+// Holding/Tapping
 ///////////////////////////////////////////////////////////////////////////
+
+#define CHORDAL_HOLD
+#define PERMISSIVE_HOLD
 
 // how many taps before oneshot toggle is triggered
 // https://docs.qmk.fm/#/one_shot_keys?id=one-shot-keys
