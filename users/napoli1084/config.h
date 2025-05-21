@@ -135,15 +135,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
 
 ///////////////////////////////////////////////////////////////////////////
-// Holding/Tapping
+// Tap-Hold
 ///////////////////////////////////////////////////////////////////////////
 
-#define CHORDAL_HOLD
-#define PERMISSIVE_HOLD
+//#define CHORDAL_HOLD
+//#define PERMISSIVE_HOLD
 
 // how many taps before oneshot toggle is triggered
 // https://docs.qmk.fm/#/one_shot_keys?id=one-shot-keys
 #define ONESHOT_TAP_TOGGLE 2
+
+// If timeout doesn't work, make sure one shot keys are enabled by pressing OS_TOGG.
+// See also `oneshot_enable(void)`.
 #define ONESHOT_TIMEOUT 5000
 
 // how many taps before triggering the toggle with layer Tap-Toggle function TT(layer)

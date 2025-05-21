@@ -48,6 +48,10 @@ void keyboard_post_init_user(void) {
     debug_config.enable = true;
     dprintf("keyboard_post_init_user\n");
 
+    // Make sure one-shot keys are enabled on startup.
+    // Can disable them with OS_TOGG if desired afterwards.
+    oneshot_enable();
+
     #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_enable_noeeprom();
     #endif
