@@ -21,7 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum/action_layer.h"
 #include "quantum/logging/debug.h"
 
-static uint8_t nap_rgb_mode = 0;
+#ifndef NAP_RGB_MODE_INITIAL
+#define NAP_RGB_MODE_INITIAL 0
+#endif
+
+static uint8_t nap_rgb_mode = NAP_RGB_MODE_INITIAL;
 
 uint8_t napoli1084_rgb_mode_get(void) {
     return nap_rgb_mode;
