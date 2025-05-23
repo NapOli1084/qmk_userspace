@@ -5,6 +5,13 @@
         ["handwired/dactyl_promicro", "napoli1084"],
         ["ergodox_ez/glow", "napoli1084"],
         ["keebio/viterbi/rev2", "napoli1084"],
-        ["splitkb/elora/rev1", "napoli1084"]
+        ["splitkb/elora/rev1", "napoli1084"],
+        [
+            "splitkb/halcyon/elora/rev2",
+            "napoli1084",
+            {
+                "HLC_TFT_DISPLAY": "1"
+            }
+        ]
     ]
 }

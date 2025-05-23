@@ -111,7 +111,7 @@ const uint8_t PROGMEM nap_rgb_single_color_layer_map[][3] = {
 #endif
 };
 
-const uint8_t PROGMEM nap_rgb_layer_index_map[] = {
+const uint8_t PROGMEM nap_rgb_layer_index_map[LYR_COUNT] = {
 #ifdef NAPOLI1084_RGBMATRIX_LYR_WORKNAP
     [LYR_WORKNAP] = NAP_RGB_MATRIX_LAYER_MAP | NAP_RGB_MATRIX_LYR_WORKNAP,
 #else
@@ -171,9 +171,12 @@ static void set_layer_color(int layer) {
 
     for (int i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
         if (!is_single_color_layer) {
+            #pragma GCC diagnostic push
+            #pragma GCC diagnostic ignored "-Warray-bounds"
             hsv.h = pgm_read_byte(&nap_rgb_matrix_layer_map[layer_index][i][0]);
             hsv.s = pgm_read_byte(&nap_rgb_matrix_layer_map[layer_index][i][1]);
             hsv.v = pgm_read_byte(&nap_rgb_matrix_layer_map[layer_index][i][2]);
+            #pragma GCC diagnostic pop
         }
         if (!hsv.h && !hsv.s && !hsv.v) {
             rgb_matrix_set_color(i, 0, 0, 0);
