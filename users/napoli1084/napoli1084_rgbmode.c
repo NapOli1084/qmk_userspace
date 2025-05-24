@@ -1,25 +1,12 @@
-/*
-Copyright 2022 NapOli1084 (@napoli1084)
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// Copyright 2022-2025 NapOli1084 (@napoli1084)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "napoli1084_rgbmode.h"
 
 #include "quantum/bitwise.h"
 #include "quantum/action_layer.h"
 #include "quantum/logging/debug.h"
+#include "quantum/split_common/transactions.h"
 
 #ifndef NAP_RGB_MODE_INITIAL
 #define NAP_RGB_MODE_INITIAL 0
@@ -47,4 +34,28 @@ void napoli1084_rgb_mode_forward(void) {
     ++rgb_mode;
     rgb_mode %= NAP_RGB_MODE_COUNT;
     napoli1084_rgb_mode_set(rgb_mode);
+}
+
+typedef struct _master_to_slave_rgb_mode_t {
+    uint8_t rgb_mode;
+} master_to_slave_rgb_mode_t;
+
+void napoli1084_sync_rgb_mode_slave_handler(uint8_t in_buflen, const void* in_data, uint8_t out_buflen, void* out_data) {
+    const master_to_slave_rgb_mode_t* m2s = (const master_to_slave_rgb_mode_t*)in_data;
+    nap_rgb_mode = m2s->rgb_mode;
+}
+
+bool napoli1084_sync_rgb_mode_master_send(void) {
+    master_to_slave_rgb_mode_t m2s = {nap_rgb_mode};
+    if (transaction_rpc_send(NAPOLI1084_SYNC_RGB_MODE, sizeof(m2s), &m2s)) {
+        //dprintf("napoli1084 slave sync rgb mode sent\n");
+        return true;
+    }
+
+    dprintf("napoli1084 slave sync rgb mode failed\n");
+    return false;
+}
+
+void napoli1084_rgb_mode_init(void) {
+    transaction_register_rpc(NAPOLI1084_SYNC_RGB_MODE, napoli1084_sync_rgb_mode_slave_handler);
 }

@@ -1,19 +1,5 @@
-/*
-Copyright 2021-2022 NapOli1084 (@napoli1084)
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+// Copyright 2021-2025 NapOli1084 (@napoli1084)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
 ///////////////////////////////////////////////////////////////////////////
 // Caps Word
@@ -61,7 +47,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef RGBLIGHT_VAL_STEP
 #define RGBLIGHT_VAL_STEP 8
 
-
 ///////////////////////////////////////////////////////////////////////////
 // RGB Matrix
 ///////////////////////////////////////////////////////////////////////////
@@ -78,61 +63,74 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Using my own processing for rgb keycodes
 #define RGB_MATRIX_DISABLE_KEYCODES
 
-#undef ENABLE_RGB_MATRIX_ALPHAS_MODS
-#undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN
-#undef ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT
-#undef ENABLE_RGB_MATRIX_BREATHING
-#undef ENABLE_RGB_MATRIX_BAND_SAT
-#undef ENABLE_RGB_MATRIX_BAND_VAL
-#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT
-#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL
-#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT
-#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL
-#undef ENABLE_RGB_MATRIX_CYCLE_ALL
-#undef ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#undef ENABLE_RGB_MATRIX_CYCLE_UP_DOWN
-#undef ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
-#undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN
-#undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL
-#undef ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
-#undef ENABLE_RGB_MATRIX_CYCLE_SPIRAL
-#undef ENABLE_RGB_MATRIX_DUAL_BEACON
-#undef ENABLE_RGB_MATRIX_RAINBOW_BEACON
-#undef ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-#undef ENABLE_RGB_MATRIX_RAINDROPS
-#undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-#undef ENABLE_RGB_MATRIX_HUE_BREATHING
-#undef ENABLE_RGB_MATRIX_HUE_PENDULUM
-#undef ENABLE_RGB_MATRIX_HUE_WAVE
-#undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL
-#undef ENABLE_RGB_MATRIX_PIXEL_FLOW
-#undef ENABLE_RGB_MATRIX_PIXEL_RAIN
+#undef RGB_MATRIX_HUE_STEP
+#define RGB_MATRIX_HUE_STEP 4
 
-//#define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT
-#define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
-//#define ENABLE_RGB_MATRIX_CYCLE_PINWHEEL
-//#define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-#define ENABLE_RGB_MATRIX_RAINDROPS // few bright red/blue/green/yellow colors
-#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS // many pastel colors, pink/purple/turquoise/etc.
+
+// https://www.youtube.com/watch?v=7f3usatOIKM&t=7s
+// SOLID_COLOR=1 always enabled
+#undef ENABLE_RGB_MATRIX_ALPHAS_MODS // alpha keys one color, mod keys another color
+#undef ENABLE_RGB_MATRIX_GRADIENT_UP_DOWN // static rainbow up-down
+#undef ENABLE_RGB_MATRIX_GRADIENT_LEFT_RIGHT // static rainbow left-right
+#undef ENABLE_RGB_MATRIX_BREATHING // breathing one color
+#undef ENABLE_RGB_MATRIX_BAND_SAT // all white, one color vertical band moving left-right
+#undef ENABLE_RGB_MATRIX_BAND_VAL // all off, one color vertical band moving left-right
+#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_SAT // all white, one color pinwheel
+#undef ENABLE_RGB_MATRIX_BAND_PINWHEEL_VAL // one color pinwheel
+#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_SAT // all white, one color spiral
+#undef ENABLE_RGB_MATRIX_BAND_SPIRAL_VAL // one color spiral
+#undef ENABLE_RGB_MATRIX_CYCLE_ALL // all same color changing rainbow
+#undef ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT //===> left-right moving rainbow, default initial value if enabled <===
+#undef ENABLE_RGB_MATRIX_CYCLE_UP_DOWN // up-down moving rainbow
+#undef ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON // left-right moving rainbow chevron '>'
+#undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN // circular rainbow towards center
+#undef ENABLE_RGB_MATRIX_CYCLE_OUT_IN_DUAL // 2 circular rainbow towards each half's center
+#undef ENABLE_RGB_MATRIX_CYCLE_PINWHEEL // rainbow pinwheel around center
+#undef ENABLE_RGB_MATRIX_CYCLE_SPIRAL // rainbow spiral arount center
+#undef ENABLE_RGB_MATRIX_DUAL_BEACON // rainbow beacon spinning both ways from center
+#undef ENABLE_RGB_MATRIX_RAINBOW_BEACON // rainbow beacon spinning from center
+#undef ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS // 2 rainbow pinwheels centered on each half
+#undef ENABLE_RGB_MATRIX_RAINDROPS // few bright red/blue/green/yellow colors
+#undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS // many pastel colors, pink/purple/turquoise/etc.
+#undef ENABLE_RGB_MATRIX_HUE_BREATHING // more like heartbeat
+#undef ENABLE_RGB_MATRIX_HUE_PENDULUM // left-right, right-left single color
+#undef ENABLE_RGB_MATRIX_HUE_WAVE // left-right single color
+#undef ENABLE_RGB_MATRIX_PIXEL_RAIN // most off, pixel rain multicolor
+#undef ENABLE_RGB_MATRIX_PIXEL_FLOW
+#undef ENABLE_RGB_MATRIX_PIXEL_FRACTAL // all off, pixels moving from center towards each side
+
+#define ENABLE_RGB_MATRIX_CYCLE_LEFT_RIGHT // default initial value if enabled
+//#define ENABLE_RGB_MATRIX_RAINBOW_MOVING_CHEVRON
 
 #undef RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
 #undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
 
-#undef RGB_MATRIX_KEYPRESSES
 #undef RGB_MATRIX_KEYRELEASES
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
-#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
-#undef ENABLE_RGB_MATRIX_SPLASH
-#undef ENABLE_RGB_MATRIX_MULTISPLASH
-#undef ENABLE_RGB_MATRIX_SOLID_SPLASH
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE // all off, single color on press
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE // all single color, opposite color on press
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE // all off, single color on surrounding keys on press
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE // as above on multiple simultaneous key press
+// Cross/nexus are weird on columnar staggered keyboards, best on ortholinear
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS // all off, single color on colum+line on press
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS // as above on multiple simultaneous key press
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS // smaller cross
+#undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS // as above on multiple simultaneous key press
+#undef ENABLE_RGB_MATRIX_SPLASH // all off, moving rainbow on all from pressed key. Pretty intense when typing.
+#undef ENABLE_RGB_MATRIX_MULTISPLASH // as above on multiple simultaneous key press
+#undef ENABLE_RGB_MATRIX_SOLID_SPLASH // all off, single color splash from pressed key
 #undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
+
+
+///////////////////////////////////////////////////////////////////////////
+// Split
+///////////////////////////////////////////////////////////////////////////
+
+// Needed for my RGB layers.
+#undef SPLIT_LAYER_STATE_ENABLE
+#define SPLIT_LAYER_STATE_ENABLE
+
+#define SPLIT_TRANSACTION_IDS_USER NAPOLI1084_SYNC_RGB_MODE
 
 ///////////////////////////////////////////////////////////////////////////
 // Tap-Hold
@@ -146,7 +144,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ONESHOT_TAP_TOGGLE 2
 
 // If timeout doesn't work, make sure one shot keys are enabled by pressing OS_TOGG.
-// See also `oneshot_enable(void)`.
+// See also `oneshot_enable(void)`, that I added to my keyboard_post_init_user.
 #define ONESHOT_TIMEOUT 5000
 
 // how many taps before triggering the toggle with layer Tap-Toggle function TT(layer)

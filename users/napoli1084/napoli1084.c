@@ -1,22 +1,10 @@
-/*
-Copyright 2022 NapOli1084 (@napoli1084)
+// Copyright 2022-2025 NapOli1084 (@napoli1084)
+// SPDX-License-Identifier: GPL-2.0-or-later
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
 #include "napoli1084_keycodes.h"
 #include "napoli1084_rgblayers.h"
 #include "napoli1084_rgbmatrix.h"
+#include "napoli1084_rgbmode.h"
 #include "napoli1084_symbolkeys.h"
 #include "napoli1084_utils.h"
 
@@ -51,6 +39,8 @@ void keyboard_post_init_user(void) {
     // Make sure one-shot keys are enabled on startup.
     // Can disable them with OS_TOGG if desired afterwards.
     oneshot_enable();
+
+    napoli1084_rgb_mode_init();
 
     #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_enable_noeeprom();
@@ -192,4 +182,19 @@ bool caps_word_press_user(uint16_t keycode) {
 
 void matrix_scan_user(void) {
     napoli1084_update_symbol_key_press();
+}
+
+void housekeeping_task_user(void) {
+    if (is_keyboard_master()) {
+        // Interact with slave every 500ms
+        static uint32_t last_sync = 0;
+        if (timer_elapsed32(last_sync) > 500) {
+            bool success = false;
+            success |= napoli1084_sync_rgb_mode_master_send();
+
+            if (success) {
+                last_sync = timer_read32();
+            }
+        }
+    }
 }
