@@ -45,3 +45,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGBLIGHT_EFFECT_TWINKLE // 6 sub-modes, leds off, then some slowly light on then off single/multi color randomly
 
 #define NAPOLI1084_QWERTY_ENABLE
+
+#define NAPOLI1084_SYMD_KB_CAFR_DISABLE
+#define NAPOLI1084_SYMD_KB_US_DISABLE
