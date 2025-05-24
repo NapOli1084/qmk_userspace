@@ -3,6 +3,8 @@
 
 #pragma once
 
+#ifdef NAPOLI1084_RGB_MODE_ENABLE
+
 #include "quantum/led.h"
 #include "quantum/action_layer.h"
 
@@ -18,5 +20,10 @@ enum napoli1084_rgb_layer_modes {
 
 uint8_t napoli1084_rgb_mode_get(void);
 void napoli1084_rgb_mode_forward(void);
+
+#ifdef SPLIT_COMMON_TRANSACTIONS
 bool napoli1084_sync_rgb_mode_master_send(void);
 void napoli1084_rgb_mode_init(void);
+#endif
+
+#endif

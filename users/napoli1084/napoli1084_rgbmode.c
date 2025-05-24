@@ -36,6 +36,7 @@ void napoli1084_rgb_mode_forward(void) {
     napoli1084_rgb_mode_set(rgb_mode);
 }
 
+#ifdef SPLIT_COMMON_TRANSACTIONS
 typedef struct _master_to_slave_rgb_mode_t {
     uint8_t rgb_mode;
 } master_to_slave_rgb_mode_t;
@@ -59,3 +60,4 @@ bool napoli1084_sync_rgb_mode_master_send(void) {
 void napoli1084_rgb_mode_init(void) {
     transaction_register_rpc(NAPOLI1084_SYNC_RGB_MODE, napoli1084_sync_rgb_mode_slave_handler);
 }
+#endif

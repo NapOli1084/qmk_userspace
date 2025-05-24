@@ -3,6 +3,9 @@
 
 #include QMK_KEYBOARD_H
 
+#ifndef SPLIT_COMMON_TRANSACTIONS
+#error "SPLIT_COMMON_TRANSACTIONS not defined, won't sync nap_rgb_mode"
+#endif
 
 /*
  * ,-------------------------------------------.                              ,-------------------------------------------.

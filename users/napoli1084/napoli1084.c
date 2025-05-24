@@ -40,7 +40,9 @@ void keyboard_post_init_user(void) {
     // Can disable them with OS_TOGG if desired afterwards.
     oneshot_enable();
 
+    #if defined(SPLIT_COMMON_TRANSACTIONS) && defined(NAPOLI1084_RGB_MODE_ENABLE)
     napoli1084_rgb_mode_init();
+    #endif
 
     #ifdef RGB_MATRIX_ENABLE
     rgb_matrix_enable_noeeprom();
@@ -184,6 +186,7 @@ void matrix_scan_user(void) {
     napoli1084_update_symbol_key_press();
 }
 
+#if defined(SPLIT_COMMON_TRANSACTIONS) && defined(NAPOLI1084_RGB_MODE_ENABLE)
 void housekeeping_task_user(void) {
     if (is_keyboard_master()) {
         // Interact with slave every 500ms
@@ -198,3 +201,4 @@ void housekeeping_task_user(void) {
         }
     }
 }
+#endif
