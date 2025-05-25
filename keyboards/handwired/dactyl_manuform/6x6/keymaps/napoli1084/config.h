@@ -37,3 +37,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define RGBLIGHT_ANIMATIONS
 
 #define LAYER_STATE_8BIT
+
+// I have no RGB or any layer indicators on this keyboard
+#undef SPLIT_LAYER_STATE_ENABLE
+
+#define NAPOLI1084_SYMD_KB_CAFR_DISABLE
+#define NAPOLI1084_SYMD_KB_US_DISABLE

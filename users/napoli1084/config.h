@@ -108,7 +108,7 @@
 
 #undef RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
-#undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
+#undef ENABLE_RGB_MATRIX_DIGITAL_RAIN // The Matrix-like white-green drops top to bottom
 
 #undef RGB_MATRIX_KEYRELEASES
 #undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE // all off, single color on press
