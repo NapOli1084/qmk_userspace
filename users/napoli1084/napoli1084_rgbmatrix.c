@@ -23,6 +23,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "napoli1084_utils.h"
 
 #include <stddef.h>
+#include "quantum/action_util.h"
+#include "quantum/logging/debug.h"
+#include "quantum/modifiers.h"
 #include "quantum/rgb_matrix/rgb_matrix.h"
 
 
@@ -232,38 +235,57 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed)
         return PROCESS_CONTINUE;
 
+    bool shifted = get_mods() & MOD_MASK_SHIFT;
+
     switch (keycode) {
         case RGB_TOG:
+        case QK_RGB_MATRIX_TOGGLE:
             rgb_matrix_toggle_noeeprom();
             return PROCESS_STOP;
         case RGB_MODE_FORWARD:
-            rgb_matrix_step_noeeprom();
+        case QK_RGB_MATRIX_MODE_NEXT:
+            if (shifted) {
+                dprintf("napoli1084 rgb mode forward shifted");
+                rgb_matrix_step_reverse_noeeprom();
+            } else {
+                dprintf("napoli1084 rgb mode forward");
+                rgb_matrix_step_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_MODE_REVERSE:
+        case QK_RGB_MATRIX_MODE_PREVIOUS:
             rgb_matrix_step_reverse_noeeprom();
             return PROCESS_STOP;
         case RGB_HUI:
+        case QK_RGB_MATRIX_HUE_UP:
             rgb_matrix_increase_hue_noeeprom();
             return PROCESS_STOP;
         case RGB_HUD:
+        case QK_RGB_MATRIX_HUE_DOWN:
             rgb_matrix_decrease_hue_noeeprom();
             return PROCESS_STOP;
         case RGB_SAI:
+        case QK_RGB_MATRIX_SATURATION_UP:
             rgb_matrix_increase_sat_noeeprom();
             return PROCESS_STOP;
         case RGB_SAD:
+        case QK_RGB_MATRIX_SATURATION_DOWN:
             rgb_matrix_decrease_sat_noeeprom();
             return PROCESS_STOP;
         case RGB_VAI:
+        case QK_RGB_MATRIX_VALUE_UP:
             rgb_matrix_increase_val_noeeprom();
             return PROCESS_STOP;
         case RGB_VAD:
+        case QK_RGB_MATRIX_VALUE_DOWN:
             rgb_matrix_decrease_val_noeeprom();
             return PROCESS_STOP;
         case RGB_SPI:
+        case QK_RGB_MATRIX_SPEED_UP:
             rgb_matrix_increase_speed_noeeprom();
             return PROCESS_STOP;
         case RGB_SPD:
+        case QK_RGB_MATRIX_SPEED_DOWN:
             rgb_matrix_decrease_speed_noeeprom();
             return PROCESS_STOP;
         case RGB_MODE_PLAIN:
@@ -302,7 +324,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
             eeconfig_debug_rgb_matrix();
             return PROCESS_STOP;
         case RGB_EEP:
-            eeconfig_update_rgb_matrix();
+            eeconfig_force_flush_rgb_matrix();
             return PROCESS_STOP;
         case RGB_LYR:
             napoli1084_rgb_mode_forward();
