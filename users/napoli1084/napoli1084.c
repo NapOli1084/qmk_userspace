@@ -83,6 +83,9 @@ uint8_t extract_mod_bits(uint16_t code);
 // I found myself often getting combos with mods not working in remote desktop,
 // adding a short delay between the mod and other key attempts to fix it.
 // => doesn't seem to fix it... maybe the problem is only with VisualStudio...
+// => 2025-05-30: or maybe it had to do with Windows StickyKeys on local computer.
+// Nowadays I don't notice it and use StickyKeys on remote computer only.
+// Maybe could try to remove this.
 void register_code16(uint16_t code) {
     if (IS_MODIFIER_KEYCODE(code) || code == KC_NO) {
         do_code16(code, register_mods);

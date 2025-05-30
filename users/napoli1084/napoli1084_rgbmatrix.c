@@ -231,8 +231,12 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
     #error RGB_MATRIX_DISABLE_KEYCODES is not defined, processing in this function supersedes the default
     #endif
 
-    // need to trigger on key-up for edge-case issue (from quantum/process_keycode/process_rgb.c)
+#ifdef RGB_TRIGGER_ON_KEYDOWN
+    if (!record->event.pressed)
+#else
+    // used to need to trigger on key-up for edge-case issue (from quantum/process_keycode/process_rgb.c)
     if (record->event.pressed)
+#endif
         return PROCESS_CONTINUE;
 
     bool shifted = get_mods() & MOD_MASK_SHIFT;
@@ -245,48 +249,84 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
         case RGB_MODE_FORWARD:
         case QK_RGB_MATRIX_MODE_NEXT:
             if (shifted) {
-                dprintf("napoli1084 rgb mode forward shifted");
+                dprintf("napoli1084 rgb mode forward shifted\n");
                 rgb_matrix_step_reverse_noeeprom();
             } else {
-                dprintf("napoli1084 rgb mode forward");
+                dprintf("napoli1084 rgb mode forward\n");
                 rgb_matrix_step_noeeprom();
             }
             return PROCESS_STOP;
         case RGB_MODE_REVERSE:
         case QK_RGB_MATRIX_MODE_PREVIOUS:
-            rgb_matrix_step_reverse_noeeprom();
+            if (shifted) {
+                rgb_matrix_step_noeeprom();
+            } else {
+                rgb_matrix_step_reverse_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_HUI:
         case QK_RGB_MATRIX_HUE_UP:
-            rgb_matrix_increase_hue_noeeprom();
+            if (shifted) {
+                rgb_matrix_decrease_hue_noeeprom();
+            } else {
+                rgb_matrix_increase_hue_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_HUD:
         case QK_RGB_MATRIX_HUE_DOWN:
-            rgb_matrix_decrease_hue_noeeprom();
+            if (shifted) {
+                rgb_matrix_increase_hue_noeeprom();
+            } else {
+                rgb_matrix_decrease_hue_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_SAI:
         case QK_RGB_MATRIX_SATURATION_UP:
-            rgb_matrix_increase_sat_noeeprom();
+            if (shifted) {
+                rgb_matrix_decrease_sat_noeeprom();
+            } else {
+                rgb_matrix_increase_sat_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_SAD:
         case QK_RGB_MATRIX_SATURATION_DOWN:
-            rgb_matrix_decrease_sat_noeeprom();
+            if (shifted) {
+                rgb_matrix_increase_sat_noeeprom();
+            } else {
+                rgb_matrix_decrease_sat_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_VAI:
         case QK_RGB_MATRIX_VALUE_UP:
-            rgb_matrix_increase_val_noeeprom();
+            if (shifted) {
+                rgb_matrix_decrease_val_noeeprom();
+            } else {
+                rgb_matrix_increase_val_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_VAD:
         case QK_RGB_MATRIX_VALUE_DOWN:
-            rgb_matrix_decrease_val_noeeprom();
+            if (shifted) {
+                rgb_matrix_increase_val_noeeprom();
+            } else {
+                rgb_matrix_decrease_val_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_SPI:
         case QK_RGB_MATRIX_SPEED_UP:
-            rgb_matrix_increase_speed_noeeprom();
+            if (shifted) {
+                rgb_matrix_decrease_speed_noeeprom();
+            } else {
+                rgb_matrix_increase_speed_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_SPD:
         case QK_RGB_MATRIX_SPEED_DOWN:
-            rgb_matrix_decrease_speed_noeeprom();
+            if (shifted) {
+                rgb_matrix_increase_speed_noeeprom();
+            } else {
+                rgb_matrix_decrease_speed_noeeprom();
+            }
             return PROCESS_STOP;
         case RGB_MODE_PLAIN:
             rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);

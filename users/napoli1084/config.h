@@ -66,6 +66,7 @@
 
 // Using my own processing for rgb keycodes
 #define RGB_MATRIX_DISABLE_KEYCODES
+#define RGB_TRIGGER_ON_KEYDOWN
 
 #undef RGB_MATRIX_HUE_STEP
 #define RGB_MATRIX_HUE_STEP 4
@@ -143,6 +144,10 @@
 //#define CHORDAL_HOLD
 //#define PERMISSIVE_HOLD
 
+// Disables hold for MT and LT keys during fast typing.
+// https://docs.qmk.fm/tap_hold#flow-tap
+#define FLOW_TAP_TERM 150
+
 // how many taps before oneshot toggle is triggered
 // https://docs.qmk.fm/#/one_shot_keys?id=one-shot-keys
 #define ONESHOT_TAP_TOGGLE 2
@@ -165,6 +170,11 @@
 // 3 milliseconds seems enough (it worked well with 5 and 10 also).
 // More than 3 milliseconds slows down repetition with WinCompose unicode keys
 // since they end up tapping 7-11 keys and repetition is every 33ms.
+//
+// Changed to 6 while trying to fix combos in:
+// https://github.com/NapOli1084/qmk_firmware/commit/067937cd330233c5b92160a027ff1b41c95bb873
+// See also register_code16 in napoli1084.c.
+//
 #define TAP_CODE_DELAY 6
 
 ///////////////////////////////////////////////////////////////////////////
