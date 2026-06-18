@@ -294,37 +294,37 @@ bool napoli1084_process_rgblight(uint16_t keycode, keyrecord_t *record) {
         return PROCESS_CONTINUE;
 
     switch (keycode) {
-        case RGB_TOG:
+        case QK_UNDERGLOW_TOGGLE:
             rgblight_toggle_noeeprom();
             return PROCESS_STOP;
-        case RGB_MODE_FORWARD:
+        case QK_UNDERGLOW_MODE_NEXT:
             rgblight_step_noeeprom();
             return PROCESS_STOP;
-        case RGB_MODE_REVERSE:
+        case QK_UNDERGLOW_MODE_PREVIOUS:
             rgblight_step_reverse_noeeprom();
             return PROCESS_STOP;
-        case RGB_HUI:
+        case QK_UNDERGLOW_HUE_UP:
             rgblight_increase_hue_noeeprom();
             return PROCESS_STOP;
-        case RGB_HUD:
+        case QK_UNDERGLOW_HUE_DOWN:
             rgblight_decrease_hue_noeeprom();
             return PROCESS_STOP;
-        case RGB_SAI:
+        case QK_UNDERGLOW_SATURATION_UP:
             rgblight_increase_sat_noeeprom();
             return PROCESS_STOP;
-        case RGB_SAD:
+        case QK_UNDERGLOW_SATURATION_DOWN:
             rgblight_decrease_sat_noeeprom();
             return PROCESS_STOP;
-        case RGB_VAI:
+        case QK_UNDERGLOW_VALUE_UP:
             rgblight_increase_val_noeeprom();
             return PROCESS_STOP;
-        case RGB_VAD:
+        case QK_UNDERGLOW_VALUE_DOWN:
             rgblight_decrease_val_noeeprom();
             return PROCESS_STOP;
-        case RGB_SPI:
+        case QK_UNDERGLOW_SPEED_UP:
             rgblight_increase_speed_noeeprom();
             return PROCESS_STOP;
-        case RGB_SPD:
+        case QK_UNDERGLOW_SPEED_DOWN:
             rgblight_decrease_speed_noeeprom();
             return PROCESS_STOP;
         case RGB_MODE_PLAIN:

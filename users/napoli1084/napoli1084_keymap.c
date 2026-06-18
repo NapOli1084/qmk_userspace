@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     TTWRKNP, KC_CAPS, KC_A   , KC_S   , KC_D   , KC_F   , KC_G   , KC_NO  ,    KC_NO  , KC_H   , KC_J   , KC_K   , KC_L   , KC_SCLN, KC_QUOT, KC_ENT , \
     KC_F2  , KC_LSFT, KC_Z   , KC_X   , KC_C   , KC_V   , KC_B   , TTGAME ,    KC_NO  , KC_N   , KC_M   , KC_COMM, KC_DOT , KC_SLSH, KC_RSFT, KC_EQL , \
     NC_RSET, KC_LCTL, KC_NUBS, KC_LGUI, KC_LALT, KC_NO  , KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO  , KC_RALT, KC_RGUI, KC_APP , KC_RCTL, KC_DEL , \
-    KC_NO  ,OSL_QNAV,KC_SPACE, KC_NO  , KC_NO  , KC_WH_D, KC_WH_U, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, KC_NO  , KC_NO  , KC_SPC , OSL_FN , KC_NO \
+    KC_NO  ,OSL_QNAV,KC_SPACE, KC_NO  , KC_NO  , MS_WHLD, MS_WHLU, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, KC_NO  , KC_NO  , KC_SPC , OSL_FN , KC_NO \
 )
 
 
@@ -43,9 +43,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NAPOLI1084_LAYOUT_LYR_QNAVNUM NAPOLI1084_LAYOUT_STD( \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, KC_NO  , KC_PSCR, KC_SCRL, KC_PAUS, KC_INS , _______,    _______, KC_CIRC, KC_NUM , KC_PSLS, KC_ASTR,KC_MINUS, _______, _______, \
-    _______, _______, KC_WH_L, KC_HOME, KC_UP  , KC_PGUP, KC_WH_R, _______,    _______, KC_PERC, KC_7   , KC_8   , KC_9   , KC_PLUS, _______, _______, \
-    _______, _______, KC_WH_U, KC_LEFT, KC_DOWN, KC_RGHT, KC_WH_U, _______,    _______, KC_DLR , KC_4   , KC_5   , KC_6   , KC_PLUS, _______, _______, \
-    _______, _______, KC_WH_L, KC_END , KC_WH_D, KC_PGDN, KC_WH_R, _______,    _______, KC_HASH, KC_1   , KC_2   , KC_3   , KC_EQL , _______, _______, \
+    _______, _______, MS_WHLL, KC_HOME, KC_UP  , KC_PGUP, MS_WHLR, _______,    _______, KC_PERC, KC_7   , KC_8   , KC_9   , KC_PLUS, _______, _______, \
+    _______, _______, MS_WHLU, KC_LEFT, KC_DOWN, KC_RGHT, MS_WHLU, _______,    _______, KC_DLR , KC_4   , KC_5   , KC_6   , KC_PLUS, _______, _______, \
+    _______, _______, MS_WHLL, KC_END , MS_WHLD, KC_PGDN, MS_WHLR, _______,    _______, KC_HASH, KC_1   , KC_2   , KC_3   , KC_EQL , _______, _______, \
     _______, _______, KC_NUBS, KC_LGUI, KC_LALT, KC_NO  , KC_NO  , _______,    _______, KC_NO  , KC_NO  , KC_0   , KC_DOT , KC_EQL , _______, _______, \
     _______, HOLDLYR, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, KC_0   , _______ \
 )
@@ -59,7 +59,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     OSL_F12, WN_LSFT, LSFT_A , KC_S   ,TD_H_ESC, LTWIN_T, KC_G   , KC_NO  ,    KC_NO  , KC_Y   , LTF1_N , KC_E   , KC_O   , RSFT_I , WN_RSFT, OSL_WIN, \
     NC_RSET, WN_LCTL, LCTL_Z , KC_X   , KC_M   , KC_C   , KC_V   , TTGAME ,    KC_NO  , KC_K   , KC_L   , UN_COMM, UN_DOT , UN_SLSH, WN_RCTL, _______, \
     KC_NO  , KC_NO  , KC_NO  , KC_LGUI, KC_LALT, KC_NO  , KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO  , KC_APP , KC_LGUI, KC_NO  , KC_NO  , KC_NO  , \
-    KC_NO  , OSL_NAV,KC_SPACE, OSL_F12, TTGAME , KC_WH_D, KC_WH_U, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, TTGAME , OSL_WIN,KC_ENTER, OSL_FRS, KC_NO \
+    KC_NO  , OSL_NAV,KC_SPACE, OSL_F12, TTGAME , MS_WHLD, MS_WHLU, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, TTGAME , OSL_WIN,KC_ENTER, OSL_FRS, KC_NO \
 )
 
   //lPinky3, lPinky2, lPinky1, lRing  , lMiddle, lIndex1, lIndex2, lIndex3,    rIndex3, rIndex2, rIndex1, rMiddle, rRing  , rPinky1, rPinky2, rPinky3,
@@ -79,9 +79,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NAPOLI1084_LAYOUT_LYR_NAVNUM NAPOLI1084_LAYOUT( \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, KC_NO  , KC_PSCR, KC_SCRL, KC_PAUS, KC_INS , _______,    _______, UN_CIRC, KC_NUM , KC_PSLS, KC_PAST, KC_MINUS,_______, _______, \
-    _______, _______, KC_WH_L, KC_HOME, KC_UP  , KC_PGUP, KC_WH_R, _______,    _______, KC_PERC, KC_7   , KC_8   , KC_9   , KC_MINUS,_______, _______, \
-    _______, _______, KC_WH_U, KC_LEFT, KC_DOWN, KC_RGHT, KC_WH_U, _______,    _______, KC_DLR , KC_4   , KC_5   , KC_6   , KC_PLUS, _______, _______, \
-    _______, _______, KC_WH_L, KC_END , KC_WH_D, KC_PGDN, KC_WH_R, _______,    _______, UN_HASH, KC_1   , KC_2   , KC_3   , KC_EQL , _______, _______, \
+    _______, _______, MS_WHLL, KC_HOME, KC_UP  , KC_PGUP, MS_WHLR, _______,    _______, KC_PERC, KC_7   , KC_8   , KC_9   , KC_MINUS,_______, _______, \
+    _______, _______, MS_WHLU, KC_LEFT, KC_DOWN, KC_RGHT, MS_WHLU, _______,    _______, KC_DLR , KC_4   , KC_5   , KC_6   , KC_PLUS, _______, _______, \
+    _______, _______, MS_WHLL, KC_END , MS_WHLD, KC_PGDN, MS_WHLR, _______,    _______, UN_HASH, KC_1   , KC_2   , KC_3   , KC_EQL , _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, KC_0   , KC_DOT , _______, _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, OSL_FN , _______ \
 )
@@ -117,9 +117,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NAPOLI1084_LAYOUT_LYR_FN NAPOLI1084_LAYOUT( \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, NC_RSET, _______, \
     _______, _______, KC_F1  , RGB_DBG, RGB_EEP, KC_F4  , KC_F5  , _______,    _______, KC_F6  , KC_F7  , KC_F8  , KC_F9  , KC_F10 , _______, _______, \
-    _______, _______, RGB_SPI, RGB_HUI, RGB_SAI, RGB_VAI, RGB_LYR, _______,    _______, BL_UP  , KC_BRIU, KC_VOLU, KC_MSTP, KC_MPRV, _______, _______, \
-    _______, _______, RGB_SPD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_MOD, _______,    _______, BL_DOWN, KC_BRID, KC_VOLD, KC_MPLY, KC_MNXT, _______, _______, \
-    _______, _______, OS_TOGG, DB_TOGG, UC_NEXT, NC_SYMD, RGB_TOG, _______,    _______, BL_TOGG, KC_NO  , KC_MUTE, KC_NO  , KC_NO  , _______, _______, \
+    _______, _______, UG_SPDU, UG_HUEU, UG_SATU, UG_VALU, RGB_LYR, _______,    _______, BL_UP  , KC_BRIU, KC_VOLU, KC_MSTP, KC_MPRV, _______, _______, \
+    _______, _______, UG_SPDD, UG_HUED, UG_SATD, UG_VALD, UG_NEXT, _______,    _______, BL_DOWN, KC_BRID, KC_VOLD, KC_MPLY, KC_MNXT, _______, _______, \
+    _______, _______, OS_TOGG, DB_TOGG, UC_NEXT, NC_SYMD, UG_TOGG, _______,    _______, BL_TOGG, KC_NO  , KC_MUTE, KC_NO  , KC_NO  , _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, HOLDLYR, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, HOLDLYR, _______ \
 )

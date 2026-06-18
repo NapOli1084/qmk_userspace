@@ -242,11 +242,11 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
     bool shifted = get_mods() & MOD_MASK_SHIFT;
 
     switch (keycode) {
-        case RGB_TOG:
+        case QK_UNDERGLOW_TOGGLE:
         case QK_RGB_MATRIX_TOGGLE:
             rgb_matrix_toggle_noeeprom();
             return PROCESS_STOP;
-        case RGB_MODE_FORWARD:
+        case QK_UNDERGLOW_MODE_NEXT:
         case QK_RGB_MATRIX_MODE_NEXT:
             if (shifted) {
                 dprintf("napoli1084 rgb mode forward shifted\n");
@@ -256,7 +256,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_step_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_MODE_REVERSE:
+        case QK_UNDERGLOW_MODE_PREVIOUS:
         case QK_RGB_MATRIX_MODE_PREVIOUS:
             if (shifted) {
                 rgb_matrix_step_noeeprom();
@@ -264,7 +264,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_step_reverse_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_HUI:
+        case QK_UNDERGLOW_HUE_UP:
         case QK_RGB_MATRIX_HUE_UP:
             if (shifted) {
                 rgb_matrix_decrease_hue_noeeprom();
@@ -272,7 +272,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_increase_hue_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_HUD:
+        case QK_UNDERGLOW_HUE_DOWN:
         case QK_RGB_MATRIX_HUE_DOWN:
             if (shifted) {
                 rgb_matrix_increase_hue_noeeprom();
@@ -280,7 +280,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_decrease_hue_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_SAI:
+        case QK_UNDERGLOW_SATURATION_UP:
         case QK_RGB_MATRIX_SATURATION_UP:
             if (shifted) {
                 rgb_matrix_decrease_sat_noeeprom();
@@ -288,7 +288,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_increase_sat_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_SAD:
+        case QK_UNDERGLOW_SATURATION_DOWN:
         case QK_RGB_MATRIX_SATURATION_DOWN:
             if (shifted) {
                 rgb_matrix_increase_sat_noeeprom();
@@ -296,7 +296,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_decrease_sat_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_VAI:
+        case QK_UNDERGLOW_VALUE_UP:
         case QK_RGB_MATRIX_VALUE_UP:
             if (shifted) {
                 rgb_matrix_decrease_val_noeeprom();
@@ -304,7 +304,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_increase_val_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_VAD:
+        case QK_UNDERGLOW_VALUE_DOWN:
         case QK_RGB_MATRIX_VALUE_DOWN:
             if (shifted) {
                 rgb_matrix_increase_val_noeeprom();
@@ -312,7 +312,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_decrease_val_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_SPI:
+        case QK_UNDERGLOW_SPEED_UP:
         case QK_RGB_MATRIX_SPEED_UP:
             if (shifted) {
                 rgb_matrix_decrease_speed_noeeprom();
@@ -320,7 +320,7 @@ bool napoli1084_process_rgb_matrix(uint16_t keycode, keyrecord_t *record) {
                 rgb_matrix_increase_speed_noeeprom();
             }
             return PROCESS_STOP;
-        case RGB_SPD:
+        case QK_UNDERGLOW_SPEED_DOWN:
         case QK_RGB_MATRIX_SPEED_DOWN:
             if (shifted) {
                 rgb_matrix_increase_speed_noeeprom();
