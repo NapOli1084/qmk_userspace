@@ -103,7 +103,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifdef TAP_DANCE_ENABLE
 
 #define TD_H_ESC TD(tap_dance_h_esc)
-#define TD_CTLZ TD(tap_dance_ctl_z_ctl_a)
+#define TD_CTLA TD(tap_dance_ctl_a_ctl_z)
 #define TD_CTLS TD(tap_dance_ctl_s_ctl_x)
 #define TD_CTLC TD(tap_dance_ctl_c_F5)
 #define TD_CTLF TD(tap_dance_ctl_f_F3)

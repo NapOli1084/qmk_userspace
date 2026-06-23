@@ -61,7 +61,7 @@ enum napoli1084_keycodes {
 enum napoli1084_tap_dance_id {
     tap_dance_reset,
     tap_dance_h_esc,
-    tap_dance_ctl_z_ctl_a,
+    tap_dance_ctl_a_ctl_z,
     tap_dance_ctl_s_ctl_x,
     tap_dance_ctl_c_F5,
     tap_dance_F7_ctl_F7,

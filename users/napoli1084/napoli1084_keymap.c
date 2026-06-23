@@ -54,7 +54,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   //lThumb0, lThumb1, lThumb2, lThumb3, lThumb4, lThumb5, lThumb6, lThumb7,    rThumb7, rThumb6, rThumb5, rThumb4, rThumb3, rThumb2, rThumb1, rThumb0
 #define NAPOLI1084_LAYOUT_LYR_WORKNAP NAPOLI1084_LAYOUT( \
     _______, NC_RSET, KC_NO  , KC_NO  , TTGAME , KC_HYPR, NC_RSET, KC_NO  ,    KC_NO  , NC_RSET, TTNVNUM, KC_MEH , KC_NO  , KC_NO  , NC_RSET, _______, \
-    TTGAME , KC_ESC , TD_CTLZ, TD_CTLS, TD_CTLC, CTL_V  , TD_F7  , NC_RSET,    NC_RSET, KC_TAB , TD_CTLF, KC_SPC , TD_CTLP, KC_0   , KC_DEL , TTMOUSE, \
+    TTGAME , KC_ESC , TD_CTLA, TD_CTLS, TD_CTLC, CTL_V  , TD_F7  , NC_RSET,    NC_RSET, KC_TAB , TD_CTLF, KC_SPC , TD_CTLP, KC_0   , KC_DEL , TTMOUSE, \
     HOLDLYR, KC_TAB , LCTL_Q , KC_D   , KC_R   , KC_W   , KC_B   , KC_NO  ,    KC_NO  , KC_J   , KC_F   , KC_U   , KC_P   , RCTL_SC, KC_BSPC, _______, \
     OSL_F12, WN_LSFT, LSFT_A , KC_S   ,TD_H_ESC, LTWIN_T, KC_G   , KC_NO  ,    KC_NO  , KC_Y   , LTF1_N , KC_E   , KC_O   , RSFT_I , WN_RSFT, OSL_WIN, \
     NC_RSET, WN_LCTL, LCTL_Z , KC_X   , KC_M   , KC_C   , KC_V   , TTGAME ,    KC_NO  , KC_K   , KC_L   , UN_COMM, UN_DOT , UN_SLSH, WN_RCTL, _______, \
