@@ -78,7 +78,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   //lThumb0, lThumb1, lThumb2, lThumb3, lThumb4, lThumb5, lThumb6, lThumb7,    rThumb7, rThumb6, rThumb5, rThumb4, rThumb3, rThumb2, rThumb1, rThumb0
 #define NAPOLI1084_LAYOUT_LYR_NAVNUM NAPOLI1084_LAYOUT( \
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, KC_NO  , KC_PSCR, KC_SCRL, KC_PAUS, KC_INS , _______,    _______, UN_CIRC, KC_NUM , KC_PSLS, KC_PAST, KC_MINUS,_______, _______, \
+    _______, _______, KC_GRV , KC_PSCR, KC_SCRL, KC_PAUS, KC_INS , _______,    _______, UN_CIRC, KC_NUM , KC_PSLS, KC_PAST, KC_MINUS,_______, _______, \
     _______, _______, MS_WHLL, KC_HOME, KC_UP  , KC_PGUP, MS_WHLR, _______,    _______, KC_PERC, KC_7   , KC_8   , KC_9   , KC_MINUS,_______, _______, \
     _______, _______, MS_WHLU, KC_LEFT, KC_DOWN, KC_RGHT, MS_WHLU, _______,    _______, KC_DLR , KC_4   , KC_5   , KC_6   , KC_PLUS, _______, _______, \
     _______, _______, MS_WHLL, KC_END , MS_WHLD, KC_PGDN, MS_WHLR, _______,    _______, UN_HASH, KC_1   , KC_2   , KC_3   , KC_EQL , _______, _______, \
