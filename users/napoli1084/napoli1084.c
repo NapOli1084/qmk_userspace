@@ -33,8 +33,13 @@
 _Static_assert(LYR_COUNT <= MAX_LAYER, "Number of layers exceeds max");
 
 void keyboard_post_init_user(void) {
+    #ifdef CONSOLE_ENABLE
     debug_config.enable = true;
+    //debug_config.matrix = true;
+    debug_config.keyboard=true;
+    //debug_config.mouse=true;
     dprintf("keyboard_post_init_user\n");
+    #endif
 
     // Make sure one-shot keys are enabled on startup.
     // Can disable them with OS_TOGG if desired afterwards.
@@ -85,7 +90,7 @@ uint8_t extract_mod_bits(uint16_t code);
 // => doesn't seem to fix it... maybe the problem is only with VisualStudio...
 // => 2025-05-30: or maybe it had to do with Windows StickyKeys on local computer.
 // Nowadays I don't notice it and use StickyKeys on remote computer only.
-// Maybe could try to remove this.
+#if 0 // NAPOLI1084_REGISTER_CODE16
 void register_code16(uint16_t code) {
     if (IS_MODIFIER_KEYCODE(code) || code == KC_NO) {
         do_code16(code, register_mods);
@@ -115,13 +120,14 @@ void unregister_code16(uint16_t code) {
         // NAPOLI1084 END
     }
 }
+#endif // NAPOLI1084_REGISTER_CODE16
 
 #ifdef TAP_DANCE_ENABLE
 extern bool napoli1084_game_w_process(uint16_t keycode, keyrecord_t *record);
 #endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    nap_dprintf("KL: kc: 0x%04X, col: %u, row: %u, pressed: %u, time: %u, "
+    nap_dprintf("process_record_user: kc: 0x%04X, col: %u, row: %u, pressed: %u, time: %u, "
             "interrupt: %u, count: %u\n",
             keycode, record->event.key.col, record->event.key.row,
             record->event.pressed, record->event.time,

@@ -168,14 +168,21 @@
 // Needed for my symbol keys with LSFT and 2 keys sequence, e.g. 'ë' on CAFR keyboard.
 // Otherwise shift isn't applied to the right keystroke and doesn't give the desired result.
 // 3 milliseconds seems enough (it worked well with 5 and 10 also).
-// More than 3 milliseconds slows down repetition with WinCompose unicode keys
-// since they end up tapping 7-11 keys and repetition is every 33ms.
+// More than 4 milliseconds slows down repetition with WinCompose unicode keys
+// since they end up tapping 7-8 keys (ComposeKey, u, 4-5 hex digits, enter) and repetition is every 33ms.
 //
 // Changed to 6 while trying to fix combos in:
 // https://github.com/NapOli1084/qmk_firmware/commit/067937cd330233c5b92160a027ff1b41c95bb873
 // See also register_code16 in napoli1084.c.
 //
-#define TAP_CODE_DELAY 6
+// Longer delay fixes mod-tap, layer-tap (LT) and tap-dance keys
+// that don't always register in ubi games (in-game console, menu shortcut).
+// 100 worked well, while with 6 it missed one keypress on ~3-5.
+// However with 100 it slows down unicode keys a lot, and causes them to repeat (e.g. ~ repeats 3 times)
+// 16-30 worked well, but also slows down unicode, can't type // twice rapidly.
+// 10 seems the best tradeoff for now, both MT/LT/TD and unicode drop some key presses, but only ~1/10.
+// It's not enough for menu shortcuts in Shadows, still miss ~1/2.
+#define TAP_CODE_DELAY 10
 
 ///////////////////////////////////////////////////////////////////////////
 // Unicode

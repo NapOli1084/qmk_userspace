@@ -116,6 +116,7 @@ bool napoli1084_symbol_key_press(uint16_t keycode) {
     tap_code16(key1);
     uint16_t key2 = entry.keys[1];
     if (key2 != KC_NO) {
+        wait_ms(10);
         tap_code16(key2);
     }
 
