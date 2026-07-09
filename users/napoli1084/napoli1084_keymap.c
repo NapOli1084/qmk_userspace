@@ -58,7 +58,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     HOLDLYR, KC_TAB , LCTL_Q , KC_D   , KC_R   , KC_W   , KC_B   , KC_NO  ,    KC_NO  , KC_J   , KC_F   , KC_U   , KC_P   , RCTL_SC, KC_BSPC, _______, \
     OSL_F12, WN_LSFT, LSFT_A , KC_S   ,TD_H_ESC, LTWIN_T, KC_G   , KC_NO  ,    KC_NO  , KC_Y   , LTF1_N , KC_E   , KC_O   , RSFT_I , WN_RSFT, OSL_WIN, \
     NC_RSET, WN_LCTL, LCTL_Z , KC_X   , KC_M   , KC_C   , KC_V   , TTGAME ,    KC_NO  , KC_K   , KC_L   , UN_COMM, UN_DOT , UN_SLSH, WN_RCTL, _______, \
-    KC_NO  , KC_NO  , KC_NO  , KC_LGUI, KC_LALT, KC_NO  , KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO  , KC_APP , KC_LGUI, KC_NO  , KC_NO  , KC_NO  , \
+    KC_NO  , KC_NO  , KC_NO  , WN_LWIN, WN_LALT, KC_NO  , KC_NO  , KC_NO  ,    KC_NO  , KC_NO  , KC_NO  , KC_APP , WN_RWIN, KC_NO  , KC_NO  , KC_NO  , \
     KC_NO  , OSL_NAV,KC_SPACE, OSL_F12, TTGAME , MS_WHLD, MS_WHLU, NC_RSET,    NC_RSET, KC_PGUP, KC_PGDN, TTGAME , OSL_WIN,KC_ENTER, OSL_FRS, KC_NO \
 )
 
@@ -68,8 +68,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     _______, _______, _______, _______, _______, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, KC_ESC , KC_GRV , KC_1   , KC_2   , KC_3   , KC_4   , KC_5   ,    _______, KC_6   , KC_7   , KC_8   , KC_9   , KC_0   , _______, _______, \
     _______, KC_TAB , KC_T   , KC_Q   , TD_GAMW, KC_E   , KC_R   , KC_T   ,    _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, KC_G   , KC_LSFT, KC_A   , KC_S   , KC_D   , KC_F   , _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, KC_B   , KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, KC_G   , KC_LSFT, KC_A   , KC_S   , KC_D   , KC_F   , _______,    _______, _______, KC_N   , _______, _______, KC_I   , _______, _______, \
+    _______, KC_B   , KC_LCTL, KC_Z   , KC_X   , KC_C   , KC_V   , _______,    _______, _______, _______, KC_COMM, KC_DOT , KC_SLSH, _______, _______, \
     _______, _______, _______, KC_M   , KC_LALT, _______, _______, _______,    _______, _______, _______, _______, _______, _______, _______, _______, \
     _______,KC_SPACE, SH_OS  , _______, _______, KC_H   , KC_5   , _______,    _______, _______, _______, _______, _______, _______, _______, _______ \
 )
