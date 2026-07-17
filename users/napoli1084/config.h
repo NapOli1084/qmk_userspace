@@ -5,7 +5,7 @@
 // Caps Word
 ///////////////////////////////////////////////////////////////////////////
 #define DOUBLE_TAP_SHIFT_TURNS_ON_CAPS_WORD
-
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 
 ///////////////////////////////////////////////////////////////////////////
 // Layers
@@ -141,10 +141,21 @@
 // Tap-Hold
 ///////////////////////////////////////////////////////////////////////////
 
-//#define CHORDAL_HOLD
 //#define PERMISSIVE_HOLD
 
-// Disables hold for MT and LT keys during fast typing.
+// Use with PERMISSIVE_HOLD or HOLD_ON_OTHER_KEY_PRESS.
+// Opposite hands rule: triggers tap for tap-hold keys if other key pressed on same hand within tapping term.
+// Prevents quick layer+key tap with layer-tap (LT) keys.
+//#define CHORDAL_HOLD
+
+// Taps tap-hold key if held and no other key pressed.
+//#define RETRO_TAPPING
+
+// Triggers mod when pressing mod-tap (MT), releases it before sending tap code if tap selected.
+// May be useful for Shift+Click. Would probably trigger OS sticky keys.
+//#define SPECULATIVE_HOLD
+
+// Disables hold for MT and LT keys during fast typing (tapped within timeout of preceding key).
 // https://docs.qmk.fm/tap_hold#flow-tap
 #define FLOW_TAP_TERM 150
 
@@ -160,7 +171,7 @@
 // https://docs.qmk.fm/#/feature_layers?id=switching-and-toggling-layers
 #define TAPPING_TOGGLE 1
 
-// how long before a tap becomes a hold in milliseconds
+// How long before a tap becomes a hold in milliseconds. Default is 200.
 #undef TAPPING_TERM
 #define TAPPING_TERM 225
 

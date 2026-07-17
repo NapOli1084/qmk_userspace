@@ -1,4 +1,5 @@
 CAPS_WORD_ENABLE = yes
+DYNAMIC_TAPPING_TERM_ENABLE = yes
 GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 # Mouse keys needed for wheel up/down/left/right
