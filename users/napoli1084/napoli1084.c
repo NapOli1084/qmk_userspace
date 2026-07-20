@@ -9,6 +9,7 @@
 #include "napoli1084_utils.h"
 
 #include "quantum/logging/debug.h" // for debug_config
+#include "quantum/quantum.h"
 
 #ifdef CONSOLE_ENABLE
     #ifdef NO_PRINT
@@ -126,12 +127,23 @@ void unregister_code16(uint16_t code) {
 extern bool napoli1084_game_w_process(uint16_t keycode, keyrecord_t *record);
 #endif
 
+static void my_print_record(uint16_t keycode, keyrecord_t *record) {
+    nap_dprintf(
+        "kc=0x%04X col=%u row=%u pressed=%u "
+        "tap.count=%u tap.interrupt=%u "
+        "mods=0x%02X osm=0x%02X osm_locked=0x%02X time=%u\n",
+        keycode, record->event.key.col, record->event.key.row, record->event.pressed,
+        record->tap.count, record->tap.interrupted,
+        get_mods(), get_oneshot_mods(), get_oneshot_locked_mods(), record->event.time);
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    nap_dprintf("process_record_user: kc: 0x%04X, col: %u, row: %u, pressed: %u, time: %u, "
-            "interrupt: %u, count: %u\n",
-            keycode, record->event.key.col, record->event.key.row,
-            record->event.pressed, record->event.time,
-            record->tap.interrupted, record->tap.count);
+    nap_dprintf("process_record_user: ");
+    my_print_record(keycode, record);
+
+    if (!IS_MODIFIER_KEYCODE(keycode) && !IS_QK_ONE_SHOT_MOD(keycode) && record->event.pressed) {
+        // TODO
+    }
 
     switch (keycode) {
     case NC_SYMD:
@@ -155,8 +167,49 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case TD_GAMW:
         return napoli1084_game_w_process(keycode, record);
     #endif
+  case NC_LSFT:
+      if (record->event.pressed) {
+          static uint16_t last_press_timer = 0;
+          bool is_double_tap = (timer_elapsed(last_press_timer) < TAPPING_TERM);
+          last_press_timer = timer_read();
+
+          if (get_oneshot_mods() & MOD_BIT(KC_LSFT)) {
+              // OSM is active: second tap → lock
+              if (is_double_tap) {
+                del_oneshot_mods(MOD_BIT(KC_LSFT));
+                add_oneshot_locked_mods(MOD_BIT(KC_LSFT));
+              } else {
+              }
+          } else if (get_oneshot_locked_mods() & MOD_BIT(KC_LSFT)) {
+              // Locked: tap again → unlock
+              del_oneshot_locked_mods(MOD_BIT(KC_LSFT));
+              unregister_mods(MOD_BIT(KC_LSFT));
+          } else {
+              // Fresh tap → start one-shot, register real mod immediately (speculative)
+              add_oneshot_mods(MOD_BIT(KC_LSFT));
+              register_mods(MOD_BIT(KC_LSFT));
+          }
+      } else {
+          // On release, only unregister if the OSM was not consumed
+          if (get_oneshot_mods() & MOD_BIT(KC_LSFT)) {
+              unregister_mods(MOD_BIT(KC_LSFT));
+              del_oneshot_mods(MOD_BIT(KC_LSFT));
+          }
+      }
+      return false;
     }
+
     return PROCESS_CONTINUE;
+}
+
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    nap_dprintf("post_process_record_user: ");
+    my_print_record(keycode, record);
+
+    // force send
+    if (keycode == WN_LSFT && !(get_mods() & MOD_BIT(KC_LSFT))) {
+        //host_keyboard_send(keyboard_report);
+    }
 }
 
 bool caps_word_press_user(uint16_t keycode) {

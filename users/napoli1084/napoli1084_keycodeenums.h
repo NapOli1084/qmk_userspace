@@ -49,7 +49,8 @@ enum napoli1084_layers {
 
 enum napoli1084_keycodes {
     // NC = NapOli1084 Code
-    NC_SYMD = SAFE_RANGE, // Symbol Mode cycle
+    NC_SYMD = QK_USER, // Symbol Mode cycle
+    NC_LSFT,
 
     NAP_RGB_BEGIN,
     RGB_DBG = NAP_RGB_BEGIN, // RGB debug, prints RGB state to console
